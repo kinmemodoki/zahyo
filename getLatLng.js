@@ -62,8 +62,7 @@
 
 function readAz1(d,m,s) {
     var az1 = 0;
-
-    var degree = parseInt(d, 10);
+    var degree = parseFloat(d, 10);
     if (isFinite(degree)) {
         az1 += degree % 360;
     }
@@ -95,6 +94,10 @@ function compute(lat, lng, dis, azi) {
         f: 1 / 298.257222101
     };
     var s = dis;
+    if(!Array.isArray(azi)){
+        azi = [azi,0,0]; 
+    }
+
     var azimuth1 = readAz1(azi[0],azi[1],azi[2]);
 
     if (lat && isFinite(s) && isFinite(azimuth1)) {
@@ -114,6 +117,5 @@ function compute(lat, lng, dis, azi) {
         return;
     }
 }
-console.log(readAz1(90,0,0));
 
 module.exports.compute = compute;
