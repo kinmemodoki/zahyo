@@ -107,7 +107,7 @@ function compute(lat, lng, dis, azi) {
             var lat2 = result.lat;
             var lng2 = result.lng;
             console.log(lat2.toFixed(12),lng2.toFixed(12));
-
+            return [lat2.toFixed(12),lng2.toFixed(12)];
         } else {
             console.log("no result");
             return;
